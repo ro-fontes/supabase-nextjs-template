@@ -14,12 +14,12 @@ import AuthAwareButtons from "@/components/AuthAwareButtons";
 import HomePricing from "@/components/HomePricing";
 
 export default function Home() {
-  const productName = process.env.NEXT_PUBLIC_PRODUCTNAME || "PsiAgenda";
+  const productName = process.env.NEXT_PUBLIC_PRODUCTNAME || "OrganizadaMente";
 
   const features = [
     {
       icon: Calendar,
-      title: "Agenda Inteligente",
+      title: "OrganizadaMente",
       description:
         "Sistema completo de agendamento com visualização diária, semanal e mensal para organizar suas consultas",
       color: "text-green-600"

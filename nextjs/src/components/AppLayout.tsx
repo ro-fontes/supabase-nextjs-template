@@ -136,7 +136,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             {isUserDropdownOpen && (
               <div className="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-lg border">
                 <div className="p-2 border-b border-gray-100">
-                  <p className="text-xs text-gray-500">Signed in as</p>
+                  <p className="text-xs text-gray-500">Entrou como:</p>
                   <p className="text-sm font-medium text-gray-900 truncate">
                     {user?.email}
                   </p>
@@ -150,7 +150,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                     className="w-full flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                   >
                     <Key className="mr-3 h-4 w-4 text-gray-400" />
-                    Change Password
+                    Mudar Senha
                   </button>
                   <button
                     onClick={() => {
@@ -160,7 +160,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                     className="w-full flex items-center px-4 py-2 text-sm text-red-600 hover:bg-red-50"
                   >
                     <LogOut className="mr-3 h-4 w-4 text-red-400" />
-                    Sign Out
+                    Deslogar
                   </button>
                 </div>
               </div>

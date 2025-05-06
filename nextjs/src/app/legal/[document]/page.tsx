@@ -6,15 +6,15 @@ import { notFound } from 'next/navigation';
 
 const legalDocuments = {
     'privacy': {
-        title: 'Privacy Notice',
+        title: 'Termos de Privacidade',
         path: '/terms/privacy-notice.md'
     },
     'terms': {
-        title: 'Terms of Service',
+        title: 'Termos de Uso',
         path: '/terms/terms-of-service.md'
     },
     'refund': {
-        title: 'Refund Policy',
+        title: 'Política de Reembolso',
         path: '/terms/refund-policy.md'
     }
 } as const;

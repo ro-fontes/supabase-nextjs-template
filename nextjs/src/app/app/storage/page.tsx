@@ -39,7 +39,7 @@ export default function FileManagementPage() {
             if (error) throw error;
             setFiles(data || []);
         } catch (err) {
-            setError('Failed to load files');
+            setError('Falha ao carregar arquivos');
             console.error('Error loading files:', err);
         } finally {
             setLoading(false);
@@ -59,9 +59,9 @@ export default function FileManagementPage() {
             if (error) throw error;
 
             await loadFiles();
-            setSuccess('File uploaded successfully');
+            setSuccess('Arquivo enviado com sucesso');
         } catch (err) {
-            setError('Failed to upload file');
+            setError('Falha ao enviar arquivo');
             console.error('Error uploading file:', err);
         } finally {
             setUploading(false);
@@ -117,7 +117,7 @@ export default function FileManagementPage() {
 
             window.open(data.signedUrl, '_blank');
         } catch (err) {
-            setError('Failed to download file');
+            setError('Falha ao baixar arquivo');
             console.error('Error downloading file:', err);
         }
     };
@@ -133,7 +133,7 @@ export default function FileManagementPage() {
             setShareUrl(data.signedUrl);
             setSelectedFile(filename);
         } catch (err) {
-            setError('Failed to generate share link');
+            setError('Falha ao gerar o link compartilhável');
             console.error('Error sharing file:', err);
         }
     };
@@ -149,9 +149,9 @@ export default function FileManagementPage() {
             if (error) throw error;
 
             await loadFiles();
-            setSuccess('File deleted successfully');
+            setSuccess('Arquivo deletado com sucesso');
         } catch (err) {
-            setError('Failed to delete file');
+            setError('Falha ao deletar arquivo');
             console.error('Error deleting file:', err);
         } finally {
             setShowDeleteDialog(false);
@@ -165,8 +165,8 @@ export default function FileManagementPage() {
             setShowCopiedMessage(true);
             setTimeout(() => setShowCopiedMessage(false), 2000);
         } catch (err) {
-            console.error('Failed to copy:', err);
-            setError('Failed to copy to clipboard');
+            console.error('Falha ao copiar arquivo:', err);
+            setError('Falha ao copiar o arquivo para a área de transferência');
         }
     };
 
@@ -175,8 +175,8 @@ export default function FileManagementPage() {
         <div className="space-y-6 p-6">
             <Card>
                 <CardHeader>
-                    <CardTitle>File Management</CardTitle>
-                    <CardDescription>Upload, download, and share your files</CardDescription>
+                    <CardTitle>Gerenciamento de Arquivos</CardTitle>
+                    <CardDescription>Envie, baixe, e compartilhe seus arquivos</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                     {error && (
@@ -208,10 +208,10 @@ export default function FileManagementPage() {
                             <Upload className="w-8 h-8"/>
                             <span className="mt-2 text-base">
                                 {uploading
-                                    ? 'Uploading...'
+                                    ? 'Enviando...'
                                     : isDragging
-                                        ? 'Drop your file here'
-                                        : 'Drag and drop or click to select a file (max 50mb)'}
+                                        ? 'Solte seus arquivos aqui'
+                                        : 'Arraste e solte ou clique para selecionar um arquivo (max 50mb)'}
                             </span>
                             <input
                                 type="file"
@@ -229,7 +229,7 @@ export default function FileManagementPage() {
                             </div>
                         )}
                         {files.length === 0 ? (
-                            <p className="text-center text-gray-500">No files uploaded yet</p>
+                            <p className="text-center text-gray-500">Sem arquivos enviados ainda</p>
                         ) : (
                             files.map((file) => (
                                 <div
@@ -244,14 +244,14 @@ export default function FileManagementPage() {
                                         <button
                                             onClick={() => handleDownload(file.name)}
                                             className="p-2 text-blue-600 hover:bg-blue-50 rounded-full transition-colors"
-                                            title="Download"
+                                            title="Baixar"
                                         >
                                             <Download className="h-5 w-5"/>
                                         </button>
                                         <button
                                             onClick={() => handleShare(file.name)}
                                             className="p-2 text-green-600 hover:bg-green-50 rounded-full transition-colors"
-                                            title="Share"
+                                            title="Compartilhar"
                                         >
                                             <Share2 className="h-5 w-5"/>
                                         </button>
@@ -261,7 +261,7 @@ export default function FileManagementPage() {
                                                 setShowDeleteDialog(true);
                                             }}
                                             className="p-2 text-red-600 hover:bg-red-50 rounded-full transition-colors"
-                                            title="Delete"
+                                            title="Apagar"
                                         >
                                             <Trash2 className="h-5 w-5"/>
                                         </button>
@@ -278,9 +278,9 @@ export default function FileManagementPage() {
                     }}>
                         <DialogContent>
                             <DialogHeader>
-                                <DialogTitle>Share {selectedFile?.split('/').pop()}</DialogTitle>
+                                <DialogTitle>Compartilhar {selectedFile?.split('/').pop()}</DialogTitle>
                                 <DialogDescription>
-                                    Copy the link below to share your file. This link will expire in 24 hours.
+                                    Copie o link abaixo para compartilhar seu arquivo. Esse link irá expirar em 24 horas.
                                 </DialogDescription>
                             </DialogHeader>
                             <div className="flex items-center space-x-2">
@@ -298,7 +298,7 @@ export default function FileManagementPage() {
                                     {showCopiedMessage && (
                                         <span
                                             className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded">
-                                            Copied!
+                                            Copiado!
                                         </span>
                                     )}
                                 </button>
@@ -310,15 +310,15 @@ export default function FileManagementPage() {
                     <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
                         <AlertDialogContent>
                             <AlertDialogHeader>
-                                <AlertDialogTitle>Delete File</AlertDialogTitle>
+                                <AlertDialogTitle>Apagar arquivo</AlertDialogTitle>
                                 <AlertDialogDescription>
-                                    Are you sure you want to delete this file? This action cannot be undone.
+                                    Você tem certeza que deseja apagar esse arquivo? Essa ação não pode ser desfeita.
                                 </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
-                                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                <AlertDialogCancel>Cancelar</AlertDialogCancel>
                                 <AlertDialogAction onClick={handleDelete} className="bg-red-600 hover:bg-red-700">
-                                    Delete
+                                    Apagar
                                 </AlertDialogAction>
                             </AlertDialogFooter>
                         </AlertDialogContent>

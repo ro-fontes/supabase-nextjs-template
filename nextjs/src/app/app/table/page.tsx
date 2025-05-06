@@ -60,7 +60,7 @@ function CreateTaskDialog({ onTaskCreated }: CreateTaskDialogProps) {
             setOpen(false);
             await onTaskCreated();
         } catch (err) {
-            setError('Failed to add task');
+            setError('Falha ao adicionar tarefa');
             console.error('Error adding task:', err);
         } finally {
             setLoading(false);
@@ -72,12 +72,12 @@ function CreateTaskDialog({ onTaskCreated }: CreateTaskDialogProps) {
             <DialogTrigger asChild>
                 <Button className="bg-primary-600 text-white hover:bg-primary-700">
                     <Plus className="h-4 w-4 mr-2" />
-                    Add Task
+                    Adicionar Tarefa
                 </Button>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle>Create New Task</DialogTitle>
+                    <DialogTitle>Criar Nova Tarefa</DialogTitle>
                 </DialogHeader>
                 {error && (
                     <Alert variant="destructive">
@@ -91,7 +91,7 @@ function CreateTaskDialog({ onTaskCreated }: CreateTaskDialogProps) {
                             type="text"
                             value={newTaskTitle}
                             onChange={(e) => setNewTaskTitle(e.target.value)}
-                            placeholder="Task title"
+                            placeholder="Título da Tarefa"
                             required
                         />
                     </div>
@@ -99,7 +99,7 @@ function CreateTaskDialog({ onTaskCreated }: CreateTaskDialogProps) {
                         <Textarea
                             value={newTaskDescription}
                             onChange={(e) => setNewTaskDescription(e.target.value)}
-                            placeholder="Task description (optional)"
+                            placeholder="Descrição da Tarefa (opcional)"
                             rows={3}
                         />
                     </div>
@@ -111,7 +111,7 @@ function CreateTaskDialog({ onTaskCreated }: CreateTaskDialogProps) {
                                 onChange={(e) => setIsUrgent(e.target.checked)}
                                 className="rounded border-gray-300 focus:ring-primary-500"
                             />
-                            <span className="text-sm">Mark as urgent</span>
+                            <span className="text-sm">Marcar como Urgente</span>
                         </label>
                         <Button
                             type="submit"
@@ -119,7 +119,7 @@ function CreateTaskDialog({ onTaskCreated }: CreateTaskDialogProps) {
                             className="bg-primary-600 text-white hover:bg-primary-700"
                         >
                             {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                            Create Task
+                            Criar Tarefa
                         </Button>
                     </div>
                 </form>
@@ -154,7 +154,7 @@ export default function TaskManagementPage() {
             if (supabaseError) throw supabaseError;
             setTasks(data || []);
         } catch (err) {
-            setError('Failed to load tasks');
+            setError('Falha ao carregar tarefas');
             console.error('Error loading tasks:', err);
         } finally {
             setLoading(false);
@@ -167,9 +167,9 @@ export default function TaskManagementPage() {
             const supabase = await createSPASassClient();
             const { error: supabaseError } = await supabase.removeTask(id.toString());
             if (supabaseError) throw supabaseError;
-            await loadTasks();
+            await loadTasks();'1'
         } catch (err) {
-            setError('Failed to remove task');
+            setError('Falha ao remover tarefa');
             console.error('Error removing task:', err);
         }
     };
@@ -184,7 +184,7 @@ export default function TaskManagementPage() {
 
             await loadTasks();
         } catch (err) {
-            setError('Failed to update task');
+            setError('Falha ao atualizar tarefa');
             console.error('Error updating task:', err);
         }
     };
@@ -202,8 +202,8 @@ export default function TaskManagementPage() {
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
                     <div>
-                        <CardTitle>Task Management</CardTitle>
-                        <CardDescription>Manage your tasks and to-dos</CardDescription>
+                        <CardTitle>Gerenciamento de Tarefas</CardTitle>
+                        <CardDescription>Gerencie suas tarefas e to-dos</CardDescription>
                     </div>
                     <CreateTaskDialog onTaskCreated={loadTasks} />
                 </CardHeader>
@@ -222,7 +222,7 @@ export default function TaskManagementPage() {
                             size="sm"
                             className={filter === null ? "bg-primary-600 text-white hover:bg-primary-700" : ""}
                         >
-                            All Tasks
+                            Todas Tarefas
                         </Button>
                         <Button
                             variant={filter === false ? "default" : "secondary"}
@@ -230,7 +230,7 @@ export default function TaskManagementPage() {
                             size="sm"
                             className={filter === false ? "bg-primary-600 text-white hover:bg-primary-700" : ""}
                         >
-                            Active
+                            Ativas
                         </Button>
                         <Button
                             variant={filter === true ? "default" : "secondary"}
@@ -238,7 +238,7 @@ export default function TaskManagementPage() {
                             size="sm"
                             className={filter === true ? "bg-primary-600 text-white hover:bg-primary-700" : ""}
                         >
-                            Completed
+                            Completas
                         </Button>
                     </div>
 
@@ -251,7 +251,7 @@ export default function TaskManagementPage() {
 
                         {tasks.length === 0 ? (
                             <div className="text-center py-8">
-                                <p className="text-muted-foreground">No tasks found</p>
+                                <p className="text-muted-foreground">Nenhuma tarefa encontrada</p>
                             </div>
                         ) : (
                             tasks.map((task) => (
@@ -273,11 +273,11 @@ export default function TaskManagementPage() {
                                             )}
                                             <div className="mt-2 flex items-center gap-2">
                                                 <span className="text-xs text-muted-foreground">
-                                                    Created: {new Date(task.created_at).toLocaleDateString()}
+                                                    Criada: {new Date(task.created_at).toLocaleDateString()}
                                                 </span>
                                                 {task.urgent && !task.done && (
                                                     <span className="px-2 py-0.5 text-xs bg-red-50 text-red-600 rounded-full">
-                                                        Urgent
+                                                        Urgente
                                                     </span>
                                                 )}
                                             </div>

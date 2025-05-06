@@ -37,7 +37,7 @@ export function GlobalProvider({ children }: { children: React.ReactNode }) {
                         registered_at: new Date(user.created_at)
                     });
                 } else {
-                    throw new Error('User not found');
+                    throw new Error('Usuário não encontrado');
                 }
 
             } catch (error) {

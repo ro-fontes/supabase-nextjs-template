@@ -46,8 +46,8 @@ export default function DashboardContent() {
       {/* Quick Actions */}
       <Card>
         <CardHeader>
-          <CardTitle>Quick Actions</CardTitle>
-          <CardDescription>Frequently used features</CardDescription>
+          <CardTitle>Ações Rápidas</CardTitle>
+          <CardDescription>Recursos usados com frequência</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4 md:grid-cols-2">
@@ -59,9 +59,9 @@ export default function DashboardContent() {
                 <Settings className="h-4 w-4 text-primary-600" />
               </div>
               <div>
-                <h3 className="font-medium">User Settings</h3>
+                <h3 className="font-medium">Configurações do Usuário</h3>
                 <p className="text-sm text-gray-500">
-                  Manage your account preferences
+                  Gerencie as preferências da sua conta
                 </p>
               </div>
             </Link>
@@ -74,9 +74,9 @@ export default function DashboardContent() {
                 <ExternalLink className="h-4 w-4 text-primary-600" />
               </div>
               <div>
-                <h3 className="font-medium">Example Page</h3>
+                <h3 className="font-medium">Página de Exemplo</h3>
                 <p className="text-sm text-gray-500">
-                  Check out example features
+                  Confira exemplos de recursos
                 </p>
               </div>
             </Link>

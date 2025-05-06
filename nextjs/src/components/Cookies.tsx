@@ -51,26 +51,27 @@ const CookieConsent = () => {
             <Shield className="h-5 w-5 text-blue-600" />
             <div className="space-y-1">
               <p className="text-sm text-gray-600">
-                We use cookies to enhance your browsing experience, serve
-                personalized content, and analyze our traffic. By clicking
-                &quot;Accept&quot;, you consent to our use of cookies.
+                Utilizamos cookies para melhorar sua experiência de navegação, oferecer
+                conteúdo personalizado e analisar nosso tráfego. Em clicar
+                &quot;Aceitar&quot;, você concorda com o uso de cookies.
               </p>
               <p className="text-sm text-gray-500">
-                Read our{" "}
+                Leia nosso{" "}
                 <Link
                   href={`/legal/privacy`}
                   className="text-blue-600 hover:text-blue-700 underline"
                 >
-                  Privacy Policy
+                  Política de Privacidade
+
                 </Link>{" "}
-                and{" "}
+                e{" "}
                 <Link
                   href={`/legal/terms`}
                   className="text-blue-600 hover:text-blue-700 underline"
                 >
-                  Terms of Service
+                  Termos de Uso
                 </Link>{" "}
-                for more information.
+                para mais informações.
               </p>
             </div>
           </div>
@@ -81,14 +82,14 @@ const CookieConsent = () => {
               onClick={handleDecline}
               className="text-gray-600 hover:text-gray-700"
             >
-              Decline
+              Recusar
             </Button>
             <Button
               size="sm"
               onClick={handleAccept}
               className="bg-blue-600 text-white hover:bg-blue-700"
             >
-              Accept
+              Aceitar
             </Button>
             <button
               onClick={handleDecline}

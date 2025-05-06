@@ -105,7 +105,7 @@ export default function SSOButtons({ onError }: SSOButtonsProps) {
       if (err instanceof Error) {
         onError?.(err.message);
       } else {
-        onError?.("An unknown error occurred");
+        onError?.("Um erro desconhecido ocorreu");
       }
     }
   };
@@ -157,7 +157,7 @@ export default function SSOButtons({ onError }: SSOButtonsProps) {
         >
           Termos e condições
         </Link>{" "}
-        and{" "}
+        e{" "}
         <Link
           href="/legal/privacy"
           className="text-blue-600 hover:text-blue-800 underline"

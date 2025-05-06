@@ -20,12 +20,12 @@ export default function RegisterPage() {
         setError('');
 
         if (!acceptedTerms) {
-            setError('You must accept the Terms of Service and Privacy Policy');
+            setError('Você deve aceitar os Termos de Serviço e Política de Privacidade');
             return;
         }
 
         if (password !== confirmPassword) {
-            setError("Passwords don't match");
+            setError("As senhas não correspondem");
             return;
         }
 
@@ -42,7 +42,7 @@ export default function RegisterPage() {
             if(err instanceof Error) {
                 setError(err.message);
             } else {
-                setError('An unknown error occurred');
+                setError('Um erro desconhecido ocorreu');
             }
         } finally {
             setLoading(false);
@@ -60,7 +60,7 @@ export default function RegisterPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                        Email address
+                        Endereço de email
                     </label>
                     <div className="mt-1">
                         <input
@@ -78,7 +78,7 @@ export default function RegisterPage() {
 
                 <div>
                     <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                        Password
+                        Senha
                     </label>
                     <div className="mt-1">
                         <input
@@ -96,7 +96,7 @@ export default function RegisterPage() {
 
                 <div>
                     <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-                        Confirm Password
+                        Confirmar Senha
                     </label>
                     <div className="mt-1">
                         <input
@@ -126,21 +126,21 @@ export default function RegisterPage() {
                         </div>
                         <div className="ml-3 text-sm">
                             <label htmlFor="terms" className="text-gray-600">
-                                I agree to the{' '}
+                                Eu concordo com o{' '}
                                 <Link
                                     href="/legal/terms"
                                     className="font-medium text-primary-600 hover:text-primary-500"
                                     target="_blank"
                                 >
-                                    Terms of Service
+                                    Termos de Serviço
                                 </Link>{' '}
-                                and{' '}
+                                e{' '}
                                 <Link
                                     href="/legal/privacy"
                                     className="font-medium text-primary-600 hover:text-primary-500"
                                     target="_blank"
                                 >
-                                    Privacy Policy
+                                    Políticas de Privacidade
                                 </Link>
                             </label>
                         </div>
@@ -152,7 +152,7 @@ export default function RegisterPage() {
                         disabled={loading}
                         className="flex w-full justify-center rounded-md border border-transparent bg-primary-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50"
                     >
-                        {loading ? 'Creating account...' : 'Create account'}
+                        {loading ? 'Criando conta...' : 'Criar conta'}
                     </button>
                 </div>
             </form>
@@ -160,10 +160,10 @@ export default function RegisterPage() {
             <SSOButtons onError={setError}/>
 
             <div className="mt-6 text-center text-sm">
-                <span className="text-gray-600">Already have an account?</span>
+                <span className="text-gray-600">Já tem uma conta?</span>
                 {' '}
                 <Link href="/auth/login" className="font-medium text-primary-600 hover:text-primary-500">
-                    Sign in
+                    Entrar
                 </Link>
             </div>
         </div>

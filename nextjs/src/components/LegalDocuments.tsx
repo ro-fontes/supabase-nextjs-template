@@ -32,7 +32,7 @@ export default function LegalDocuments({ minimalist }: LegalDocumentsParams) {
             className="flex items-center justify-center px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors"
           >
             <span className="text-sm text-gray-600 hover:text-blue-600">
-              Termos de serviço
+              Termos de uso
             </span>
           </Link>
 
@@ -78,7 +78,7 @@ export default function LegalDocuments({ minimalist }: LegalDocumentsParams) {
           <FileText className="w-4 h-4 text-gray-500 group-hover:text-blue-600" />
 
           <span className="text-sm text-gray-700 group-hover:text-blue-700">
-            Termos de serviço
+            Termos de uso
           </span>
         </Link>
 

@@ -46,7 +46,7 @@ export default function LoginPage() {
       if (err instanceof Error) {
         setError(err.message);
       } else {
-        setError("An unknown error occurred");
+        setError("Um erro desconhecido ocorreu");
       }
     } finally {
       setLoading(false);

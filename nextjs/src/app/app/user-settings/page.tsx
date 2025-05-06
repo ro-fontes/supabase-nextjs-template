@@ -20,7 +20,7 @@ export default function UserSettingsPage() {
     const handlePasswordChange = async (e: React.FormEvent) => {
         e.preventDefault();
         if (newPassword !== confirmPassword) {
-            setError("New passwords don't match");
+            setError("As novas senhas não correspondem");
             return;
         }
 
@@ -38,16 +38,16 @@ export default function UserSettingsPage() {
 
             if (error) throw error;
 
-            setSuccess('Password updated successfully');
+            setSuccess('Senha atualizada com sucesso');
             setNewPassword('');
             setConfirmPassword('');
         } catch (err: Error | unknown) {
             if (err instanceof Error) {
-                console.error('Error updating password:', err);
+                console.error('Erro ao atualizar senha:', err);
                 setError(err.message);
             } else {
                 console.error('Error updating password:', err);
-                setError('Failed to update password');
+                setError('Erro ao atualizar senha:');
             }
         } finally {
             setLoading(false);
@@ -59,9 +59,9 @@ export default function UserSettingsPage() {
     return (
         <div className="space-y-6 p-6">
             <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tight">User Settings</h1>
+                <h1 className="text-3xl font-bold tracking-tight">Configurações do Usuário</h1>
                 <p className="text-muted-foreground">
-                    Manage your account settings and preferences
+                    Gerencie as configurações e preferências da sua conta
                 </p>
             </div>
 
@@ -84,13 +84,13 @@ export default function UserSettingsPage() {
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2">
                                 <User className="h-5 w-5" />
-                                User Details
+                                Detalhes do Usuário
                             </CardTitle>
-                            <CardDescription>Your account information</CardDescription>
+                            <CardDescription>Informações da sua conta</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div>
-                                <label className="text-sm font-medium text-gray-500">User ID</label>
+                                <label className="text-sm font-medium text-gray-500">ID do Usuário</label>
                                 <p className="mt-1 text-sm">{user?.id}</p>
                             </div>
                             <div>
@@ -104,15 +104,15 @@ export default function UserSettingsPage() {
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2">
                                 <Key className="h-5 w-5" />
-                                Change Password
+                                Mudar Senha
                             </CardTitle>
-                            <CardDescription>Update your account password</CardDescription>
+                            <CardDescription>Atualize a senha da sua conta</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <form onSubmit={handlePasswordChange} className="space-y-4">
                                 <div>
                                     <label htmlFor="new-password" className="block text-sm font-medium text-gray-700">
-                                        New Password
+                                        Nova Senha
                                     </label>
                                     <input
                                         type="password"
@@ -125,7 +125,7 @@ export default function UserSettingsPage() {
                                 </div>
                                 <div>
                                     <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700">
-                                        Confirm New Password
+                                        Confirme sua Nova Senha
                                     </label>
                                     <input
                                         type="password"
@@ -141,7 +141,7 @@ export default function UserSettingsPage() {
                                     disabled={loading}
                                     className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50"
                                 >
-                                    {loading ? 'Updating...' : 'Update Password'}
+                                    {loading ? 'Atualizando...' : 'Atualizar Senha'}
                                 </button>
                             </form>
                         </CardContent>
@@ -149,7 +149,7 @@ export default function UserSettingsPage() {
 
                     <MFASetup
                         onStatusChange={() => {
-                            setSuccess('Two-factor authentication settings updated successfully');
+                            setSuccess('Configurações da autenticação de dois fatores atualizadas com sucesso');
                         }}
                     />
                 </div>

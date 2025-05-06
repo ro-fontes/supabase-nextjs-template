@@ -22,7 +22,7 @@ const LegalDocument: React.FC<LegalDocumentProps> = ({ filePath, title }) => {
     fetch(filePath)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Failed to load document");
+          throw new Error("Falha ao carregar documento");
         }
         return response.text();
       })
@@ -32,7 +32,7 @@ const LegalDocument: React.FC<LegalDocumentProps> = ({ filePath, title }) => {
       })
       .catch((error) => {
         console.error("Error loading markdown:", error);
-        setError("Failed to load document. Please try again later.");
+        setError("Falha ao carregar documento. Por favor tente mais tarde.");
         setLoading(false);
       });
   }, [filePath]);
